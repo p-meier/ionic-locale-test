@@ -33,12 +33,12 @@ angular.module('starter', ['ionic', 'pascalprecht.translate'])
             if (navigator.globalization) {
                 navigator.globalization.getPreferredLanguage(function (language) {
 
-                    alert(language.value);
+                    var isoLangCode = language.value.split("-")[0];
 
-                    $translate.use((language.value).split("-")[0]).then(function (data) {
-                        console.log("SUCCESS -> " + data);
+                    $translate.use(isoLangCode).then(function (data) {
+                        alert("Successful: " + isoLangCode);
                     }, function (error) {
-                        console.log("ERROR -> " + error);
+                        alert("Error: " + error);
                     });
 
                 }, null);
